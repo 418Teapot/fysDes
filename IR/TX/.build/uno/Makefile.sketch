@@ -1,0 +1,14 @@
+
+
+
+
+
+.build/uno/src/IRTX.cpp : src/IRTX.ino
+	@mkdir -p .build/uno/src
+	@echo src/IRTX.ino
+	@/usr/local/bin/ino preproc  -o $@ $^
+
+
+all : .build/uno/src/IRTX.cpp
+	@true
+

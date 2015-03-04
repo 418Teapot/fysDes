@@ -1,0 +1,14 @@
+
+
+
+
+
+.build/uno/src/ir_sniffer.cpp : src/ir_sniffer.ino
+	@mkdir -p .build/uno/src
+	@echo src/ir_sniffer.ino
+	@/usr/local/bin/ino preproc  -o $@ $^
+
+
+all : .build/uno/src/ir_sniffer.cpp
+	@true
+
