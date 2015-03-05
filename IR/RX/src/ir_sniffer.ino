@@ -20,11 +20,14 @@ void setup()
   irrecv.enableIRIn(); // Start the receiver
 }
 
+char rx;
+
 void loop() {
   if (irrecv.decode(&results)) {
   //	if (irrecv.decodeSony(&results)) {
     //Serial.println(results.value, HEX);
-    Serial.println(char(results.value),BIN);
+    rx=char(results.value&0xF);
+    Serial.println(rx,DEC);
     irrecv.resume(); // Receive the next value
   }
 }

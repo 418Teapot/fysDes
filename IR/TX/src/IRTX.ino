@@ -18,12 +18,12 @@ void setup()
 void loop() {
 
 	while(!Serial.available());
-
-	unsigned int rx=Serial.read();
+	char rx=Serial.read();
+	unsigned int rx_int=(unsigned int)rx;
 
 	Serial.print("Sending ");
-	Serial.println(char(rx));
-	irsend.sendSony(rx,8); //8 bits
+	Serial.println(rx);
+	irsend.sendSony(rx_int,32); //8 bits
 	//irsend.sendRaw(&rx,1,36);
 
 }
