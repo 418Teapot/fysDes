@@ -9,7 +9,7 @@
 int right = 10; // højre rød
 int left = 9; // venstre blå
 
-// led right 
+// led right
 int IR_right = 15;
 int IR_left = 6 ;
 
@@ -23,32 +23,32 @@ int freq = 440;
 int downTime = 500;
 
 void setup(){
-  Serial.begin(9600);
+  //Serial.begin(9600);
   pinMode(left, OUTPUT);
   pinMode(right, OUTPUT);
-  
+
   irrecvR.enableIRIn();
   irrecvL.enableIRIn();
-  
-  
+
+
 }
-void loop() 
+void loop()
 {
-  
+
   if(irrecvR.decode(&resultsR)){
-     rightHit(); 
-     
+     rightHit();
+
      irrecvR.resume();
   }
-  
+
   if(irrecvL.decode(&resultsL)){
     leftHit();
-    
+
     irrecvL.resume();
   }
-  
-  
-  
+
+
+
 }
 
 void leftHit(){
@@ -60,7 +60,7 @@ void leftHit(){
    noTone(left);
       tone(left, freq, downTime);
    delay(downTime);
-   noTone(left);  
+   noTone(left);
 }
 
 void rightHit() {
